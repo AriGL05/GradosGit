@@ -8,7 +8,7 @@ public class Grado {
         this.valor = valor;
         this.unidad = unidad;
     }
-    
+
 
     public Double getValor() {
         return valor;
