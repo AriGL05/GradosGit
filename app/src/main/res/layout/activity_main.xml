@@ -14,9 +14,54 @@
         app:layout_constraintBottom_toTopOf="@id/guidelinename"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+    <Spinner
+        android:id="@+id/spinnerFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/guidelinestop"
+        app:layout_constraintStart_toEndOf="@id/guidelinestart"
+        app:layout_constraintEnd_toStartOf="@id/guidelinesSpinner1"
+        />
+
+    <Spinner
+        android:id="@+id/spinnerTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerFrom"
+        app:layout_constraintBottom_toTopOf="@id/guidelinestop"
+        app:layout_constraintStart_toEndOf="@id/guidelinesSpinner2"
+        app:layout_constraintEnd_toStartOf="@id/guidelinesend"/>
+
     <EditText
-        android:layout_width=""
-        android:layout_height=""
+        android:id="@+id/editTextValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/guidelinename"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@id/guidelinestart"
+        app:layout_constraintEnd_toStartOf="@id/guidelinesSpinner1"/>
+
+    <EditText
+        android:id="@+id/editTextResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/guidelinename"
+        android:hint="Result"
+        app:layout_constraintStart_toEndOf="@id/guidelinesSpinner2"
+        app:layout_constraintEnd_toStartOf="@id/guidelinesend"
+        android:focusable="false"/>
+
+    <Button
+        android:id="@+id/buttonConvert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextResult"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@id/guidelinesbottom"
+        app:layout_constraintStart_toEndOf="@id/guidelinestart"
+        app:layout_constraintEnd_toStartOf="@id/guidelinesend"
+        android:text="Convert"/>
     
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinestart"
@@ -31,6 +76,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinesSpinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelinesSpinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinename"
         android:layout_width="wrap_content"
@@ -50,6 +107,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_begin="402dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
