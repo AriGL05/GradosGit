@@ -6,9 +6,7 @@ public class Celsius extends Grado{
         super(valor, unidad);
     }
     public Celsius parse(Farenheit f){
-        return  new Celsius((f.getValor()-32)*0.55,"C");
+        return  new Celsius(f.getValor()*1.8+32,"F");
     }
-    public Celsius parse(Kelvin k){
-        return new Celsius(k.getValor()-273.15,"C");
-    }
+    public Celsius parse(Kelvin k){return new Celsius(k.getValor()+273.15,"K");}
 }

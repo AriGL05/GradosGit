@@ -22,12 +22,10 @@
         app:layout_constraintStart_toEndOf="@id/guidelinestart"
         app:layout_constraintEnd_toStartOf="@id/guidelinesSpinner1"
         />
-
     <Spinner
         android:id="@+id/spinnerTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerFrom"
         app:layout_constraintBottom_toTopOf="@id/guidelinestop"
         app:layout_constraintStart_toEndOf="@id/guidelinesSpinner2"
         app:layout_constraintEnd_toStartOf="@id/guidelinesend"/>
@@ -62,7 +60,7 @@
         app:layout_constraintStart_toEndOf="@id/guidelinestart"
         app:layout_constraintEnd_toStartOf="@id/guidelinesend"
         android:text="Convert"/>
-    
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinestart"
         android:layout_width="wrap_content"
@@ -93,20 +91,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.30" />
+        app:layout_constraintGuide_percent="0.20" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinesbottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.55" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinestop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="402dp" />
+        app:layout_constraintGuide_percent="0.40"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

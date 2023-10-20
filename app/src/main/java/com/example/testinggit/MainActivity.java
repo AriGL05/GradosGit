@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,10 +33,18 @@ public class MainActivity extends AppCompatActivity {
         editTextResult = findViewById(R.id.editTextResult);
         buttonConvert = findViewById(R.id.buttonConvert);
 
-        Grado celsius = new Celsius(0.0,"C");
-        celsius.setValor(10.0);
-        Grado farenheit = new Farenheit(0.0,"F");
-        Grado kelvin = new Kelvin(0.0,"K");
+
+// Create an array of units (e.g., Celsius, Fahrenheit, Kelvin)
+        String[] units = {"Celsius", "Fahrenheit", "Kelvin"};
+
+// Create an adapter to display the units
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, units);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Set the adapter for the spinner
+        spinnerFrom.setAdapter(adapter);
+
+        spinnerTo.setAdapter(adapter);
+
 
         buttonConvert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +89,38 @@ public class MainActivity extends AppCompatActivity {
         if (fromGrado == null) {
             return 0.0; // Handle this case accordingly
         }
+        switch (toIndex) {
+            case 0: // Conversion to Celsius
+                if (fromGrado instanceof Celsius) {
+                    return fromGrado.getValor();
+                } else if (fromGrado instanceof Farenheit) {
+                    return ((Farenheit) fromGrado).parse(new Celsius(fromGrado.getValor(), "C")).getValor();
+                } else if (fromGrado instanceof Kelvin) {
+                    return ((Kelvin) fromGrado).parse(new Celsius(fromGrado.getValor(), "C")).getValor();
+                }
+                break;
+
+            case 1: // Conversion to Fahrenheit
+                if (fromGrado instanceof Celsius) {
+                    return ((Celsius) fromGrado).parse(new Farenheit(fromGrado.getValor(), "F")).getValor();
+                } else if (fromGrado instanceof Farenheit) {
+                    return fromGrado.getValor();
+                } else if (fromGrado instanceof Kelvin) {
+                    return ((Kelvin) fromGrado).parse(new Farenheit(fromGrado.getValor(), "F")).getValor();
+                }
+                break;
+
+            case 2: // Conversion to Kelvin
+                if (fromGrado instanceof Celsius) {
+                    return ((Celsius) fromGrado).parse(new Kelvin(fromGrado.getValor(), "K")).getValor();
+                } else if (fromGrado instanceof Farenheit) {
+                    return ((Farenheit) fromGrado).parse(new Kelvin(fromGrado.getValor(), "K")).getValor();
+                } else if (fromGrado instanceof Kelvin) {
+                    return fromGrado.getValor();
+                }
+                break;
+        }
+        return 0.0;
 
     }
 
