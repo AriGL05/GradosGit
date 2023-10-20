@@ -34,13 +34,11 @@ public class MainActivity extends AppCompatActivity {
         buttonConvert = findViewById(R.id.buttonConvert);
 
 
-// Create an array of units (e.g., Celsius, Fahrenheit, Kelvin)
         String[] units = {"Celsius", "Fahrenheit", "Kelvin"};
 
-// Create an adapter to display the units
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, units);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Set the adapter for the spinner
+
         spinnerFrom.setAdapter(adapter);
 
         spinnerTo.setAdapter(adapter);
